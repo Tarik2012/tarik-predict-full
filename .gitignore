@@ -5,3 +5,5 @@
 # Si quieres ignorarlos solo en ciertas carpetas:
 data/*.csv
 modelos/*.pkl
+*.csv
+*.pkl
