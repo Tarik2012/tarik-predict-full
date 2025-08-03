@@ -1,0 +1,3 @@
+# Ignorar archivos grandes
+data/survey_results_public.csv
+modelos/random_forest.pkl
