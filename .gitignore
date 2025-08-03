@@ -1,3 +1,7 @@
-# Ignorar archivos grandes
-data/survey_results_public.csv
-modelos/random_forest.pkl
+# Ignorar TODOS los .csv y .pkl del proyecto
+*.csv
+*.pkl
+
+# Si quieres ignorarlos solo en ciertas carpetas:
+data/*.csv
+modelos/*.pkl
