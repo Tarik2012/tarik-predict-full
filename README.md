@@ -24,13 +24,13 @@ git clone https://github.com/Tarik2012/tarik-predict.git
 cd tarik-predict
 pip install -r requirements.txt
 
-# virtual environment
 python -m venv .venv
-source .venv/bin/activate    # On Windows: .venv\Scripts\activate
+.venv\Scripts\activate       # En Windows
+# o
+source .venv/bin/activate    # En Linux/macOS
+
 pip install -r requirements.txt
 
-# Run the training script:
+
 python src/train.py
-
-
 ```
