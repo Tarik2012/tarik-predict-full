@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TariPredict - Tech Salary Insights</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-white text-gray-800 font-sans antialiased">
+    <!-- Header -->
+    <header class="shadow-sm border-b">
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4"
+      >
+        <!-- Logo + Title -->
+        <div class="flex items-center space-x-4">
+          <img
+            src="{% static 'images/logo.png' %}"
+            alt="TariPredict Logo"
+            class="h-14 w-14"
+          />
+          <a
+            href="{% url 'home' %}"
+            class="text-2xl font-bold text-emerald-700 tracking-tight"
+          >
+            TariPredict
+          </a>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="space-x-6 text-sm font-medium text-gray-700">
+          <a href="{% url 'analysis' %}" class="hover:text-emerald-700"
+            >Salary Data</a
+          >
+          <a href="{% url 'filters' %}" class="hover:text-emerald-700"
+            >Explore by Filter</a
+          >
+          <a href="{% url 'global_graphs' %}" class="hover:text-emerald-700"
+            >Global Graphs</a
+          >
+          <a href="{% url 'predict_salary' %}" class="hover:text-emerald-700"
+            >Predict Salary</a
+          >
+
+          <a href="#" class="hover:text-emerald-700">Job Prediction</a>
+          <a href="#" class="hover:text-emerald-700">Login</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 py-10">
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-400 text-sm py-6 border-t mt-12">
+      © 2025 TariPredict · Built with 💻 and ☕
+    </footer>
+  </body>
+</html>

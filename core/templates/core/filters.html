@@ -1,0 +1,61 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<section class="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-md mt-6">
+  <h2 class="text-2xl font-bold mb-4 text-gray-800">Filtrar resultados</h2>
+
+  <form method="get" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+    <div>
+      <label for="country" class="block font-semibold mb-1">País:</label>
+      <select name="country" id="country" class="w-full p-2 border rounded">
+        <option value="">Todos</option>
+        {% for c in countries %}
+          <option value="{{ c }}" {% if request.GET.country == c %}selected{% endif %}>{{ c }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div>
+      <label for="devtype" class="block font-semibold mb-1">Tipo de desarrollador:</label>
+      <select name="devtype" id="devtype" class="w-full p-2 border rounded">
+        <option value="">Todos</option>
+        {% for d in devtypes %}
+          <option value="{{ d }}" {% if request.GET.devtype == d %}selected{% endif %}>{{ d }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div>
+      <label for="edlevel" class="block font-semibold mb-1">Nivel educativo:</label>
+      <select name="edlevel" id="edlevel" class="w-full p-2 border rounded">
+        <option value="">Todos</option>
+        {% for e in edlevels %}
+          <option value="{{ e }}" {% if request.GET.edlevel == e %}selected{% endif %}>{{ e }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div>
+      <label for="experience" class="block font-semibold mb-1">Años de experiencia:</label>
+      <select name="experience" id="experience" class="w-full p-2 border rounded">
+        <option value="">Todos</option>
+        {% for x in experiences %}
+          <option value="{{ x }}" {% if request.GET.experience == x %}selected{% endif %}>{{ x }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-span-full">
+      <button type="submit" class="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+        Aplicar filtros
+      </button>
+    </div>
+  </form>
+
+  <div class="bg-gray-100 p-4 rounded-md">
+    <h3 class="text-lg font-semibold mb-2 text-gray-700">Resultados filtrados:</h3>
+    <p><strong>Total de respuestas:</strong> {{ total }}</p>
+    <p><strong>Salario medio:</strong> {{ average_salary|floatformat:2 }} USD</p>
+  </div>
+</section>
+{% endblock %}

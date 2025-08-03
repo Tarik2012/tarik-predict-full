@@ -1,0 +1,29 @@
+<!-- prettier-ignore -->
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="text-center">
+  <h2 class="text-3xl font-bold mb-4">Welcome to TariPredict</h2>
+  <p class="mb-6 text-lg">
+    Analyze tech job market data and get salary predictions powered by AI.
+  </p>
+
+  <div class="space-x-4">
+    <button
+      class="bg-blue-600 text-white font-semibold py-2 px-4 rounded opacity-50 cursor-not-allowed"
+      disabled
+    >
+      📊 Start Analysis (coming soon)
+    </button>
+    <button
+      class="bg-green-600 text-white font-semibold py-2 px-4 rounded opacity-50 cursor-not-allowed"
+      disabled
+    >
+      🤖 Try Salary Prediction (coming soon)
+    </button>
+  </div>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,53 @@
+<!-- prettier-ignore -->
+{% extends 'core/base.html' %} 
+{% load static %} 
+
+{% block content %}
+<section class="bg-white p-6 rounded-md shadow-md">
+  <h2 class="text-2xl font-bold text-emerald-700 mb-4">
+    📊 Global Salary Graph
+  </h2>
+
+  <p class="mb-6 text-gray-700">
+    Below is a general analysis of how average salary changes with years of
+    professional experience, based on the global Stack Overflow survey data.
+  </p>
+
+  <!-- Gráfico generado con Plotly -->
+  <div class="flex justify-center">{{ graph_html|safe }}</div>
+
+  <div
+    class="mt-10 p-6 bg-gray-50 border border-gray-200 rounded-md shadow-sm text-gray-800"
+  >
+    <h3 class="text-xl font-semibold text-emerald-700 mb-3">
+      rf432wq <a href=""></a>
+      📊 Análisis de la gráfica
+    </h3>
+    <p class="mb-2">
+      Esta gráfica muestra cómo evoluciona el
+      <strong>salario medio anual (USD)</strong> en función de los
+      <strong>años de experiencia profesional</strong> como desarrollador, según
+      los datos globales de la encuesta de Stack Overflow.
+    </p>
+    <ul class="list-disc list-inside mb-2">
+      <li>
+        <strong>0 a 10 años:</strong> El salario crece rápidamente, lo que
+        refleja una gran progresión en los primeros años de carrera.
+      </li>
+      <li>
+        <strong>10 a 40 años:</strong> Se mantiene una tendencia general de
+        crecimiento estable, con pequeñas variaciones.
+      </li>
+      <li>
+        <strong>A partir de 43 años:</strong> Se observan subidas y bajadas
+        drásticas debido a pocos datos disponibles y valores atípicos
+        (outliers).
+      </li>
+    </ul>
+    <p>
+      <strong>Conclusión:</strong> El salario medio crece con la experiencia,
+      pero los datos a partir de los 43 años deben interpretarse con precaución.
+    </p>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,23 @@
+# Web y Backend
+Django>=5.0,<6.0
+djangorestframework>=3.14
+gunicorn  # Para producción si lo despliegas
+
+# Ciencia de Datos
+pandas>=2.2
+numpy>=1.26
+matplotlib>=3.8
+seaborn>=0.13
+scikit-learn>=1.4
+plotly>=5.20
+openpyxl  # Para leer/escribir archivos Excel
+
+# Soporte para archivos CSV grandes o formatos comprimidos
+pyarrow  # Usado también para Parquet
+fastparquet
+
+# Soporte para entornos
+python-dotenv  # Para usar variables desde .env
+
+# Si usas Jupyter Notebooks para análisis
+jupyter

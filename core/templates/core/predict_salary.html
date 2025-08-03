@@ -1,0 +1,210 @@
+<!-- prettier-ignore -->
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="bg-white p-6 rounded-md shadow-md">
+  <h2 class="text-2xl font-bold text-indigo-700 mb-4">
+    🤖 Salary Prediction Results
+  </h2>
+
+  <p class="mb-6 text-gray-700">
+    Below is the performance of the trained machine learning model that predicts
+    annual salaries based on experience, education, country, and other features.
+  </p>
+
+  <div
+    class="grid gap-4 text-gray-800 text-lg bg-gray-50 border border-gray-200 rounded-md shadow-sm p-6"
+  >
+    <p><strong>Sample size:</strong> {{ sample_size }}</p>
+    <p><strong>MAE (Mean Absolute Error):</strong> ${{ mae }}</p>
+    <p><strong>MSE (Mean Squared Error):</strong> ${{ mse }}</p>
+    <p><strong>R² (Coef. of Determination):</strong> {{ r2 }}</p>
+    <p><strong>Modelo:</strong> {{ modelo }}</p>
+  </div>
+
+  <div
+    class="mt-10 p-6 bg-gray-50 border border-gray-200 rounded-md shadow-sm text-gray-800"
+  >
+    <h3 class="text-xl font-semibold text-indigo-700 mb-3">
+      📈 Análisis del modelo
+    </h3>
+    <p class="mb-2">
+      El modelo de regresión entrenado (Random Forest Regressor) intenta
+      predecir el <strong>salario anual (USD)</strong> utilizando información
+      como país, nivel educativo, experiencia y modalidad de trabajo.
+    </p>
+    <ul class="list-disc list-inside mb-2">
+      <li>
+        <strong>MAE:</strong> representa el error promedio entre la predicción y
+        el salario real.
+      </li>
+      <li>
+        <strong>MSE:</strong> refleja el error cuadrático medio (muy sensible a
+        outliers).
+      </li>
+      <li>
+        <strong>R²:</strong> mide qué tan bien el modelo explica los datos
+        (ideal cercano a 1).
+      </li>
+    </ul>
+    <p>
+      <strong>Conclusión:</strong> Un R² de {{ r2 }} indica que el modelo tiene
+      un rendimiento aceptable. Puede mejorarse añadiendo más variables o
+      ajustando hiperparámetros.
+    </p>
+  </div>
+</section>
+
+<!-- NUEVO: Formulario para hacer predicción -->
+<section class="bg-white p-6 mt-10 rounded-md shadow-md">
+  <h2 class="text-2xl font-bold text-emerald-700 mb-4">
+    🎯 Predict Your Salary
+  </h2>
+
+  <form method="POST" action="{% url 'predict_salary' %}">
+    {% csrf_token %}
+
+    <div>
+      <label for="YearsCodePro" class="font-medium"
+        >Years of Professional Experience:</label
+      >
+      <input
+        type="number"
+        name="YearsCodePro"
+        id="YearsCodePro"
+        step="1"
+        min="0"
+        class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="EdLevel" class="font-medium">Highest Education Level:</label>
+      <select
+        name="EdLevel"
+        id="EdLevel"
+        class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+      >
+        <option value="Bachelor’s degree">Bachelor’s degree</option>
+        <option value="Master’s degree">Master’s degree</option>
+        <option value="Doctoral degree">Doctoral degree</option>
+        <option value="Some college/university study without earning a degree">
+          Some college
+        </option>
+        <option
+          value="Secondary school (e.g. American high school, German Realschule or Gymnasium, etc.)"
+        >
+          Secondary school
+        </option>
+      </select>
+    </div>
+
+    <div>
+      <label for="Country" class="font-medium">Country:</label>
+      <select
+        name="Country"
+        id="Country"
+        class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+      >
+        <option value="United States of America">
+          United States of America
+        </option>
+        <option value="Spain">Spain</option>
+        <option value="Algeria">Algeria</option>
+        <option value="India">India</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="DevType" class="font-medium">Developer Type:</label>
+      <select
+        name="DevType"
+        id="DevType"
+        class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+      >
+        <option value="Developer, full-stack">Full-Stack</option>
+        <option value="Developer, back-end">Back-End</option>
+        <option value="Developer, front-end">Front-End</option>
+        <option value="Data scientist or machine learning specialist">
+          Data Scientist
+        </option>
+      </select>
+    </div>
+
+    <div>
+      <label for="Employment" class="font-medium">Employment Type:</label>
+      <select
+        name="Employment"
+        id="Employment"
+        class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+      >
+        <option value="Employed, full-time">Full-Time</option>
+        <option value="Employed, part-time">Part-Time</option>
+        <option value="Independent contractor">Contractor</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="RemoteWork" class="font-medium">Remote Work:</label>
+      <select
+        name="RemoteWork"
+        id="RemoteWork"
+        class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+      >
+        <option value="Remote">Remote</option>
+        <option value="Hybrid (some remote, some in-person)">Hybrid</option>
+        <option value="In-person">In-Person</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="OrgSize" class="font-medium">Organization Size:</label>
+      <select
+        name="OrgSize"
+        id="OrgSize"
+        class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+      >
+        <option value="100 to 499 employees">100 to 499 employees</option>
+        <option value="10 to 19 employees">10 to 19 employees</option>
+        <option value="500 to 999 employees">500 to 999 employees</option>
+        <option value="Fewer than 10 employees">Fewer than 10</option>
+        <option value="More than 10,000 employees">More than 10,000</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="AISelect" class="font-medium">Do you use AI tools?</label>
+      <select
+        name="AISelect"
+        id="AISelect"
+        class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+      >
+        <option value="Yes, I use AI tools regularly">Yes, regularly</option>
+        <option value="No, but I plan to learn them soon">
+          No, but planning
+        </option>
+        <option value="No, and I do not plan to learn them">
+          No, not planning
+        </option>
+      </select>
+    </div>
+
+    <button
+      type="submit"
+      class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md shadow"
+    >
+      🔍 Predict Salary
+    </button>
+  </form>
+
+  {% if salario %}
+  <div
+    class="mt-8 p-4 bg-green-100 border border-green-300 rounded-md shadow text-green-800"
+  >
+    💰 <strong>Predicted Salary:</strong> ${{ salario }}
+  </div>
+  {% endif %}
+</section>
+{% endblock %}
