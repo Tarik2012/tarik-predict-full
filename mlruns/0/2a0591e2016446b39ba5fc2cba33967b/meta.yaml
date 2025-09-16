@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/erroc/OneDrive/Desktop/practicas/data%20science/proyecto-prediccion/mlruns/0/2a0591e2016446b39ba5fc2cba33967b/artifacts
+end_time: 1756317894192
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2a0591e2016446b39ba5fc2cba33967b
+run_name: Logistic Regression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756317888485
+status: 3
+tags: []
+user_id: erroc

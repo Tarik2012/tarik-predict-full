@@ -3,27 +3,58 @@
 {% load static %}
 
 {% block content %}
-<div class="text-center">
+<div class="text-center mb-10 max-w-3xl mx-auto">
   <h2 class="text-3xl font-bold mb-4">Welcome to TariPredict</h2>
-  <p class="mb-6 text-lg">
-    Analyze tech job market data and get salary predictions powered by AI.
+  <p class="mb-6 text-lg text-gray-700">
+    Analyze technology job market data and obtain salary predictions powered by machine learning.
+  </p>
+</div>
+
+<!-- Project Presentation -->
+<section class="bg-white p-6 rounded-md shadow-md max-w-3xl mx-auto mb-10">
+  <h3 class="text-2xl font-bold text-emerald-700 mb-4">About the Project</h3>
+  <p class="text-gray-700 mb-4">
+    TariPredict is an analytical platform built with Django and machine learning
+    models trained on the global Stack Overflow Developer Survey. 
+    Its objective is to provide insights into the technology job market 
+    and offer salary predictions based on professional experience, education,
+    country, and other relevant factors.
+  </p>
+  <p class="text-gray-700">
+    The project combines data science techniques with a modern web interface 
+    to support professionals in making informed career decisions.
+  </p>
+</section>
+
+<!-- Metrics Section -->
+<section class="bg-white p-6 rounded-md shadow-md max-w-3xl mx-auto">
+  <h3 class="text-2xl font-bold text-indigo-700 mb-4">
+    Model Performance Metrics
+  </h3>
+
+  <p class="mb-6 text-gray-700">
+    Here are the key performance indicators of our trained salary prediction model,
+    based on real survey data.
   </p>
 
-  <div class="space-x-4">
-    <button
-      class="bg-blue-600 text-white font-semibold py-2 px-4 rounded opacity-50 cursor-not-allowed"
-      disabled
-    >
-      📊 Start Analysis (coming soon)
-    </button>
-    <button
-      class="bg-green-600 text-white font-semibold py-2 px-4 rounded opacity-50 cursor-not-allowed"
-      disabled
-    >
-      🤖 Try Salary Prediction (coming soon)
-    </button>
+  <div
+    class="grid gap-4 text-gray-800 text-lg bg-gray-50 border border-gray-200 rounded-md shadow-sm p-6"
+  >
+    <p><strong>Sample size:</strong> {{ sample_size }}</p>
+    <p><strong>MAE (Mean Absolute Error):</strong> ${{ mae }}</p>
+    <p><strong>MSE (Mean Squared Error):</strong> ${{ mse }}</p>
+    <p><strong>R² (Coefficient of Determination):</strong> {{ r2 }}</p>
+    <p><strong>Model:</strong> {{ modelo }}</p>
   </div>
-</div>
+
+  <!-- Button to prediction form -->
+  <div class="mt-6 text-center">
+    <a
+      href="{% url 'predict_salary' %}"
+      class="bg-green-600 text-white font-semibold py-2 px-4 rounded shadow hover:bg-green-700"
+    >
+      Try Salary Prediction
+    </a>
+  </div>
+</section>
 {% endblock %}
-
-

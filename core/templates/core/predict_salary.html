@@ -3,72 +3,17 @@
 {% load static %}
 
 {% block content %}
+<!-- Prediction Form -->
 <section class="bg-white p-6 rounded-md shadow-md">
-  <h2 class="text-2xl font-bold text-indigo-700 mb-4">
-    🤖 Salary Prediction Results
-  </h2>
-
-  <p class="mb-6 text-gray-700">
-    Below is the performance of the trained machine learning model that predicts
-    annual salaries based on experience, education, country, and other features.
-  </p>
-
-  <div
-    class="grid gap-4 text-gray-800 text-lg bg-gray-50 border border-gray-200 rounded-md shadow-sm p-6"
-  >
-    <p><strong>Sample size:</strong> {{ sample_size }}</p>
-    <p><strong>MAE (Mean Absolute Error):</strong> ${{ mae }}</p>
-    <p><strong>MSE (Mean Squared Error):</strong> ${{ mse }}</p>
-    <p><strong>R² (Coef. of Determination):</strong> {{ r2 }}</p>
-    <p><strong>Modelo:</strong> {{ modelo }}</p>
-  </div>
-
-  <div
-    class="mt-10 p-6 bg-gray-50 border border-gray-200 rounded-md shadow-sm text-gray-800"
-  >
-    <h3 class="text-xl font-semibold text-indigo-700 mb-3">
-      📈 Análisis del modelo
-    </h3>
-    <p class="mb-2">
-      El modelo de regresión entrenado (Random Forest Regressor) intenta
-      predecir el <strong>salario anual (USD)</strong> utilizando información
-      como país, nivel educativo, experiencia y modalidad de trabajo.
-    </p>
-    <ul class="list-disc list-inside mb-2">
-      <li>
-        <strong>MAE:</strong> representa el error promedio entre la predicción y
-        el salario real.
-      </li>
-      <li>
-        <strong>MSE:</strong> refleja el error cuadrático medio (muy sensible a
-        outliers).
-      </li>
-      <li>
-        <strong>R²:</strong> mide qué tan bien el modelo explica los datos
-        (ideal cercano a 1).
-      </li>
-    </ul>
-    <p>
-      <strong>Conclusión:</strong> Un R² de {{ r2 }} indica que el modelo tiene
-      un rendimiento aceptable. Puede mejorarse añadiendo más variables o
-      ajustando hiperparámetros.
-    </p>
-  </div>
-</section>
-
-<!-- NUEVO: Formulario para hacer predicción -->
-<section class="bg-white p-6 mt-10 rounded-md shadow-md">
-  <h2 class="text-2xl font-bold text-emerald-700 mb-4">
-    🎯 Predict Your Salary
-  </h2>
+  <h2 class="text-2xl font-bold text-emerald-700 mb-4">Predict Your Salary</h2>
 
   <form method="POST" action="{% url 'predict_salary' %}">
     {% csrf_token %}
 
     <div>
-      <label for="YearsCodePro" class="font-medium"
-        >Years of Professional Experience:</label
-      >
+      <label for="YearsCodePro" class="font-medium">
+        Years of Professional Experience:
+      </label>
       <input
         type="number"
         name="YearsCodePro"
@@ -195,7 +140,7 @@
       type="submit"
       class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md shadow"
     >
-      🔍 Predict Salary
+      Predict Salary
     </button>
   </form>
 
@@ -203,7 +148,7 @@
   <div
     class="mt-8 p-4 bg-green-100 border border-green-300 rounded-md shadow text-green-800"
   >
-    💰 <strong>Predicted Salary:</strong> ${{ salario }}
+    <strong>Predicted Salary:</strong> ${{ salario }}
   </div>
   {% endif %}
 </section>

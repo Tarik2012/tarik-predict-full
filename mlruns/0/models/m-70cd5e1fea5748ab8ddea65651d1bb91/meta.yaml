@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/erroc/OneDrive/Desktop/practicas/data%20science/proyecto-prediccion/mlruns/0/models/m-70cd5e1fea5748ab8ddea65651d1bb91/artifacts
+creation_timestamp: 1756317894447
+experiment_id: '0'
+last_updated_timestamp: 1756317898497
+model_id: m-70cd5e1fea5748ab8ddea65651d1bb91
+model_type: null
+name: Random Forest_model
+source_run_id: 914291ea41aa40438902a83ac78b1c35
+status: 2
+status_message: null

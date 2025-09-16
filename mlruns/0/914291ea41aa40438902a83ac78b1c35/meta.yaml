@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/erroc/OneDrive/Desktop/practicas/data%20science/proyecto-prediccion/mlruns/0/914291ea41aa40438902a83ac78b1c35/artifacts
+end_time: 1756317898510
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 914291ea41aa40438902a83ac78b1c35
+run_name: Random Forest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756317894198
+status: 3
+tags: []
+user_id: erroc

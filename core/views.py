@@ -2,11 +2,16 @@ from django.views.generic import TemplateView
 from .utils import load_data
 from collections import Counter
 import pandas as pd
-
+from .predict_model import predecir_salarios
 
 class HomeView(TemplateView):
-    template_name = 'core/home.html'
+    template_name = "core/home.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Añadimos las métricas calculadas por el modelo
+        context.update(predecir_salarios())
+        return context
 
 class AnalysisView(TemplateView):
     template_name = "core/analysis.html"

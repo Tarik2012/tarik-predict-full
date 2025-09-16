@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/erroc/OneDrive/Desktop/practicas/data%20science/proyecto-prediccion/mlruns/0/models/m-b535acc8f24142f4a4e39ea7998cf43d/artifacts
+creation_timestamp: 1756318100332
+experiment_id: '0'
+last_updated_timestamp: 1756318104215
+model_id: m-b535acc8f24142f4a4e39ea7998cf43d
+model_type: null
+name: SVM_model
+source_run_id: 5be9524f096841af98723b0040d5787f
+status: 2
+status_message: null

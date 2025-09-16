@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/erroc/OneDrive/Desktop/practicas/data%20science/proyecto-prediccion/mlruns/0/5be9524f096841af98723b0040d5787f/artifacts
+end_time: 1756318104231
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5be9524f096841af98723b0040d5787f
+run_name: SVM
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756318100203
+status: 3
+tags: []
+user_id: erroc

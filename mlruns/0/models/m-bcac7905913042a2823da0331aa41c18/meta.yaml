@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/erroc/OneDrive/Desktop/practicas/data%20science/proyecto-prediccion/mlruns/0/models/m-bcac7905913042a2823da0331aa41c18/artifacts
+creation_timestamp: 1756317888731
+experiment_id: '0'
+last_updated_timestamp: 1756317894177
+model_id: m-bcac7905913042a2823da0331aa41c18
+model_type: null
+name: Logistic Regression_model
+source_run_id: 2a0591e2016446b39ba5fc2cba33967b
+status: 2
+status_message: null
